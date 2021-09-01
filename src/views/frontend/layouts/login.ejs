@@ -1,0 +1,22 @@
+<div class="main-page page w-100 text-center" id="home">
+  <div class="d-flex align-items-center flex-column bd-highlight h-100">
+    <div class="px-4 bd-highlight">
+      <div class="login-page">
+        <div class="form">
+          <h3 style="color: #ffb548;"><b>LOGIN</b></h3>
+          <%if(typeof error != "undefined"){%>
+            <span style="color: black;"><%= error.message %></span><br/>
+          <%}%>  
+          <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="username" id="username" />
+            <input type="password" name="password" placeholder="password" id="password" />
+            <button type="submit">login</button>
+          </form>
+          <p class="message">
+            Not registered? <a href="/register">Create an account</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

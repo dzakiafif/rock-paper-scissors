@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">User Game</h1>
+  <p class="mb-4">
+    User Game is where we put all data about user account information that play
+    in our game
+  </p>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">User Game Table</h6>
+    </div>
+    <div class="card-body">
+      <a href="/usergame/create" class="editor-create float-right btn btn-primary">
+        <span
+            ><i class="fas fa-user fa-sm fa-fw mr-2 text-light-400"></i></span
+          >Create new user
+      </a>
+      <div class="table-responsive" style="padding-top: 1rem">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data.length > 0) { %>
+              <% for( let i = 0; i < data.length; i++) { %>
+                <tr>
+                  <td><%= data[i].username %></td>
+                  <td><%= data[i].role %></td>
+                  <td>
+                    <a class="btn btn-primary btn-circle btn-sm" href="/usergame/edit/<%= data[i].id %>"
+                    ><i class="fas fa-edit"></i
+                    ></a>
+                    <a class="btn btn-danger btn-circle btn-sm" href="/usergame/delete/<%= data[i].id %>"
+                      ><i class="fas fa-trash"></i
+                    ></a>
+                  </td>
+                </tr>
+              <% } %>
+            <% } else { %>
+              <tr>
+                <td colspan="3" style="text-align: center;">Tidak ada data</td>
+              </tr>
+            <% } %>  
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

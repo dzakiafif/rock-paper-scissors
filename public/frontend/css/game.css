@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  height: 100vh;
+  background: #9c835f;
+  --back-btn-color: #724c21;
+  --title-color: #f9b23d;
+  --challenge-color: #bd0000;
+  --winner-color: #4c9654;
+  --draw-color: #035b0c;
+  --selection-color: #c4c4c4;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  height: 10vh;
+}
+
+header a {
+  display: inline-block;
+  font-size: 2.5rem;
+  color: var(--back-btn-color);
+  text-decoration: none;
+}
+
+header img {
+  width: 50px;
+  margin: 0 1.2rem;
+}
+
+header h1 {
+  font-size: 5vmin;
+  text-transform: uppercase;
+  color: var(--title-color);
+}
+
+.game-board {
+  display: flex;
+  width: 80%;
+  height: 80vh;
+  margin: 1rem auto;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.game-board h1 {
+  letter-spacing: 0.1em;
+  padding: 1rem 0;
+  font-size: 4vmin;
+}
+
+.game-board section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-board .selection {
+  display: flex;
+  justify-content: center;
+  width: 21vmin;
+  height: 20vmin;
+  border-radius: 30px;
+}
+
+.selected {
+  background: var(--selection-color);
+}
+
+.game-board img {
+  max-width: 15vmin;
+  max-height: 15vmin;
+  align-self: center;
+  transition: 200ms;
+}
+
+#player img:hover {
+  cursor: pointer;
+  transform: scale(110%);
+}
+
+.match {
+  font-size: 8vmin;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: var(--challenge-color);
+  width: 30vmin;
+  display: flex;
+  justify-content: center;
+}
+
+.match #case1,
+.match #case2,
+.match #case3 {
+  max-height: 40vmin;
+  max-width: 25vmin;
+  transform: rotate(-28.87deg);
+}
+
+.refresh {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -30%);
+}
+
+.refresh img {
+  max-width: 8vh;
+  cursor: pointer;
+}
+
+.winner-board {
+  width: 30vmin;
+  height: 20vmin;
+  background: var(--winner-color);
+  border-radius: 10px;
+  transform: rotate(-28.87deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.winner-board h2 {
+  font-size: 3vmin;
+  color: white;
+  letter-spacing: 0.1em;
+}

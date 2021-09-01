@@ -1,0 +1,79 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Update User Biodata</h1>
+  </div>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Update User Biodata Form</h6>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/userbiodata/update/<%= data[0].id %>">
+        <div class="form-group">
+          <label for="">User</label>
+          <input type="text" name="userId" id="" class="form-control" value="<%= data[0].UserGame.username %>" readonly>
+        </div>
+        <div class="form-group">
+          <label for="">Fullname</label>
+          <input type="text" class="form-control" name="fullname" placeholder="Enter fullname"
+            value="<%= data[0].fullname %>">
+        </div>
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="email" class="form-control" name="email" placeholder="Enter email" value="<%= data[0].email %>">
+        </div>
+        <div class="form-group">
+          <label for="">Address</label>
+          <textarea name="address" id="" rows="10" class="form-control"><%= data[0].address %></textarea>
+        </div>
+        <div class="form-group">
+          <label for="">Phone Number</label>
+          <input type="text" class="form-control" name="phoneNumber" placeholder="Enter phone number"
+            value="<%= data[0].phone_number %>">
+        </div>
+        <div class="form-group">
+          <label for="">Gender</label>
+          <select name="gender" id="" class="form-control">
+            <% const options = [
+              {
+                'type': 'm',
+                'gender': 'MALE'
+              },
+              {
+                'type': 'f',
+                'gender': 'FEMALE'
+              }
+            ]; 
+            for ( var i=0; i < options.length; i++ ) 
+            { 
+              var selected=( data[0].gender== options[i].type ) ? "selected" : "" ; %>
+              <option value="<%=options[i].type %>" <%=selected %>><%= options[i].gender %>
+              </option>
+            <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Age</label>
+          <input type="number" class="form-control" name="age" placeholder="Enter Age" value="<%= data[0].age %>">
+        </div>
+        <%if(typeof error !="undefined" ){%>
+          <span style="color: black;">
+            <%= error.message%>
+          </span><br />
+          <%}%>
+            <input type="submit" class="btn btn-primary" value="submit">
+      </form>
+    </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<!-- End of Content Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>

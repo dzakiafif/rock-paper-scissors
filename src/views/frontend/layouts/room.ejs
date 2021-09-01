@@ -1,0 +1,20 @@
+<div class="main-page page w-100 text-center" id="home">
+  <div class="d-flex align-items-center flex-column bd-highlight h-100">
+    <div class="px-4 bd-highlight">
+      <div class="login-page">
+        <div class="form">
+          <h3 style="color: #ffb548"><b>Rock Paper Scissors Game</b></h3>
+          <%if(typeof error != "undefined"){%>
+          <span style="color: black"><%= error %></span><br />
+          <%}%>
+          <button class="btn-primary" style="margin-top: 1rem">Create Game</button>
+          <hr style="margin-top: 2 rem">
+          <form action="#" method="POST">
+            <input type="text" name="room" placeholder="Room ID" id="room" />
+            <button class="btn-primary">Join</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

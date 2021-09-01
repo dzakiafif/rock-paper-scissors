@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header') -%>
+  <body id="page-top">
+    <div id="wrapper">
+
+        <%- include('partials/sidebar') -%>
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+              <%- include('partials/topbar') -%>
+                <%- include(template) -%>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include('partials/footer') -%>
+    <%- include('partials/script') -%>
+  </body>
+</html>

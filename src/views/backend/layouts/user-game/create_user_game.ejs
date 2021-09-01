@@ -1,0 +1,39 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Create New User</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Create New User Form</h6>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/usergame/store">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Username</label>
+                  <input type="text" class="form-control" name="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="Enter password">
+                </div>
+                <%if(typeof error != "undefined"){%>
+                  <span style="color: black;"><%= error.message%></span><br/>
+                <%}%>
+                <input type="submit" class="btn btn-primary" value="submit">
+              </form>
+        </div>
+      </div>
+  
+</div>
+  <!-- /.container-fluid -->
+  
+  <!-- End of Content Wrapper -->
+  
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  

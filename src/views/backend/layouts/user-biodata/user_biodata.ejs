@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">User Biodata</h1>
+  <p class="mb-4">
+    User Biodata is where we put all data about user information that play in
+    our game
+  </p>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">User Biodata Table</h6>
+    </div>
+    <div class="card-body">
+      <a href="/userbiodata/create" class="editor-create float-right btn btn-primary">
+        <span
+            ><i class="fas fa-user fa-sm fa-fw mr-2 text-light-400"></i></span
+          >Create new user biodata
+      </a>
+      <div class="table-responsive" style="padding-top: 1rem">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Fullname</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Phone Number</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data.length > 0) { %>
+              <% for( let i = 0; i < data.length; i++) { %>
+                <tr>
+                  <td><%= data[i].UserGame.username %></td>
+                  <td><%= data[i].fullname !== '' ? data[i].fullname : '-' %></td>
+                  <td><%= data[i].email %></td>
+                  <td><%= data[i].address %></td>
+                  <td><%= data[i].phone_number %></td>
+                  <td><%= data[i].gender %></td>
+                  <td><%= data[i].age %></td>
+                  <td>
+                    <a class="btn btn-primary btn-circle btn-sm" href="/userbiodata/edit/<%= data[i].id %>"
+                    ><i class="fas fa-edit"></i
+                    ></a>
+                    <a class="btn btn-danger btn-circle btn-sm" href="/userbiodata/delete/<%= data[i].id %>"
+                      ><i class="fas fa-trash"></i
+                    ></a>
+                  </td>
+                </tr>
+              <% } %>
+            <% } else { %>
+              <tr>
+                <td colspan="8" style="text-align: center;">Tidak ada data</td>
+              </tr>
+            <% } %>  
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

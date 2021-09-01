@@ -1,0 +1,68 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Create New User</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Create New User Form</h6>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/userbiodata/store">
+                <div class="form-group">
+                  <label for="">User</label>
+                  <select name="userId" id="" class="form-control">
+                    <option value="">-- Choose User --</option>
+                    <% for( let i = 0; i < data.length; i++) { %>
+                      <option value="<%= data[i].id %>"><%= data[i].username %></option>
+                    <% } %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">Fullname</label>
+                  <input type="text" class="form-control" name="fullname" placeholder="Enter fullname">
+                </div>
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input type="email" class="form-control" name="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <textarea name="address" id="" rows="10" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="">Phone Number</label>
+                  <input type="text" class="form-control" name="phoneNumber" placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                  <label for="">Gender</label>
+                  <select name="gender" id="" class="form-control">
+                    <option value="">-- Choose Gender --</option>
+                    <option value="m">MALE</option>
+                    <option value="f">FEMALE</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">Age</label>
+                  <input type="number" class="form-control" name="age" placeholder="Enter Age">
+                </div>
+                <%if(typeof error != "undefined"){%>
+                  <span style="color: black;"><%= error.message%></span><br/>
+                <%}%>
+                <input type="submit" class="btn btn-primary" value="submit">
+              </form>
+        </div>
+      </div>
+  
+</div>
+  <!-- /.container-fluid -->
+  
+  <!-- End of Content Wrapper -->
+  
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  
