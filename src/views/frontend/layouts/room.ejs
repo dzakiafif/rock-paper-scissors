@@ -7,10 +7,12 @@
           <%if(typeof error != "undefined"){%>
           <span style="color: black"><%= error %></span><br />
           <%}%>
-          <button class="btn-primary" style="margin-top: 1rem">Create Game</button>
+          <form action="/room" method="post">
+            <button class="btn-primary" style="margin-top: 1rem">Create Game</button>
+          </form>
           <hr style="margin-top: 2 rem">
-          <form action="#" method="POST">
-            <input type="text" name="room" placeholder="Room ID" id="room" />
+          <form action="/join-room" method="POST">
+            <input type="text" name="roomId" placeholder="Room ID" id="room" />
             <button class="btn-primary">Join</button>
           </form>
         </div>

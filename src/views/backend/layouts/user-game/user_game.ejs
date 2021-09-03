@@ -10,7 +10,7 @@
       <h6 class="m-0 font-weight-bold text-primary">User Game Table</h6>
     </div>
     <div class="card-body">
-      <a href="/usergame/create" class="editor-create float-right btn btn-primary">
+      <a href="/admin/usergame/create" class="editor-create float-right btn btn-primary">
         <span
             ><i class="fas fa-user fa-sm fa-fw mr-2 text-light-400"></i></span
           >Create new user
@@ -36,10 +36,10 @@
                   <td><%= data[i].username %></td>
                   <td><%= data[i].role %></td>
                   <td>
-                    <a class="btn btn-primary btn-circle btn-sm" href="/usergame/edit/<%= data[i].id %>"
+                    <a class="btn btn-primary btn-circle btn-sm" href="/admin/usergame/edit/<%= data[i].id %>"
                     ><i class="fas fa-edit"></i
                     ></a>
-                    <a class="btn btn-danger btn-circle btn-sm" href="/usergame/delete/<%= data[i].id %>"
+                    <a class="btn btn-danger btn-circle btn-sm" href="/admin/usergame/delete/<%= data[i].id %>"
                       ><i class="fas fa-trash"></i
                     ></a>
                   </td>

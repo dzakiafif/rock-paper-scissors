@@ -2,10 +2,7 @@ import db, { UserBiodata, UserGame } from '../models';
 
 class UserBiodataService {
       static findUserBiodata = async ({ id }) => {
-        const result = await UserBiodata.findAll({
-          where: {
-            id,
-          },
+        const result = await UserBiodata.findByPk(id, {
           include: [
             {
               model: UserGame,

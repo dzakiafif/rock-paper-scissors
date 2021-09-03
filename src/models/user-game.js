@@ -1,7 +1,16 @@
 import { Model } from 'sequelize';
 
 module.exports = (sequelize, DataTypes) => {
-  class UserGame extends Model { }
+  class UserGame extends Model {
+    static associate(models) {
+      const { Room, UserGameRoom } = models;
+
+      UserGame.belongsToMany(Room, {
+        as: 'room',
+        through: UserGameRoom,
+      });
+    }
+  }
 
   UserGame.init({
     id: {

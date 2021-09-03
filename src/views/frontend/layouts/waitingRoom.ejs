@@ -1,0 +1,15 @@
+<div class="main-page page w-100 text-center" id="home">
+    <div class="d-flex align-items-center flex-column bd-highlight h-100">
+      <div class="px-4 bd-highlight">
+        <div class="waiting-box">
+          <div class="dialog-box">
+            <h3 style="color: #ffb548"><b>You have already created new room with ID: <%= data %> successfully.</b></h3>
+            <%if(typeof error != "undefined"){%>
+            <span style="color: black"><%= error.message %></span><br />
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -5,35 +5,15 @@
         <div class="form">
           <h3 style="color: #ffb548;"><b>CREATE ACCOUNT</b></h3>
           <div class="register-form" style="margin-top: 2rem">
-            <input type="text" placeholder="username" name="username" id="username" />
-            <span id="username-validation" style="color: black; display: none;"></span>
-            <input type="password" placeholder="password" name="password" id="password" />
-            <span class="hide" id="password-validation" style="color: black; display: none;"></span>
-            <input type="text" placeholder="email address" name="email" id="email" />
-            <span class="hide" id="email-validation" style="color: black; display: none;"></span>
-            <button type="submit" onclick="createUser()">create</button>
+            <%if(typeof error != "undefined"){%>
+              <span style="color: black;"><%= error.message %></span><br/>
+            <%}%>
+            <form action="/register" method="post">
+              <input type="text" placeholder="username" name="username" id="username" />
+              <input type="password" placeholder="password" name="password" id="password" />
+              <button type="submit" >create</button>
+            </form>
             <p class="message">Already registered? <a href="/login">Sign In</a></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel" style="color: black">Congratulations!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- <p id="textVal"></p> -->
-              <p class="float-left" id="textVal" style="color: black">Your Account is created!</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" style="color: white;" onclick="closeModal()">OK</button>
-            </div>
           </div>
         </div>
       </div>

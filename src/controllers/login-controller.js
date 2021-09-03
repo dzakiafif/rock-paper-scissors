@@ -28,7 +28,7 @@ class LoginController {
         await validate(data, rules, message).catch((error) => { throw error; });
 
         const findUser = await UserGameService.findUserGameByUsername({ username });
-        if (findUser.length <= 0) {
+        if (findUser === null) {
           throw ERRORS.USER_USERNAME_NOT_EXIST;
         }
 
@@ -40,6 +40,41 @@ class LoginController {
 
         findUser.setDataValue('token', token);
         return res.status(200).json(response.success(findUser));
+      } catch (err) {
+        const getError = response.errors(err);
+        return res.status(getError.code).json(getError);
+      }
+    }
+
+    static register = async (req, res) => {
+      try {
+        const rules = {
+          username: 'required',
+          password: 'required|min:4',
+        };
+
+        const { username, password } = req.body;
+
+        const data = {
+          username,
+          password,
+        };
+
+        const message = {
+          required: (field) => `${field} is required`,
+          'password.min': 'Password is too short',
+        };
+
+        await validate(data, rules, message).catch((error) => { throw error; });
+
+        const findUser = await UserGameService.findUserGameByUsername({ username });
+        if (findUser !== null) {
+          throw ERRORS.USER_USERNAME_EXIST;
+        }
+
+        await UserGameService.createUserGame({ username, password });
+
+        return res.status(200).json(response.success(null, 'successfully registered'));
       } catch (err) {
         const getError = response.errors(err);
         return res.status(getError.code).json(getError);

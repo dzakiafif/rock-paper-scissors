@@ -12,12 +12,7 @@ class UserGameService {
     }
 
       static findUserGame = async ({ id }) => {
-        const result = await UserGame.findAll({
-          where: {
-            id,
-          },
-          attributes: ['id', 'username', 'role', 'created_at', 'updated_at'],
-        });
+        const result = await UserGame.findByPk(id, { attributes: ['id', 'username', 'role', 'created_at', 'updated_at'] });
 
         return result;
       }

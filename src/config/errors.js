@@ -8,6 +8,9 @@ const ERRORS = {
   EMAIL_BLANK: 'email field is required',
   PASSWORD_TOO_SHORT: 'password is too short',
   PASSWORD_WRONG: 'wrong password',
+  ROOM_FULL: 'Room Full',
+  ROOM_NOT_EXIST: 'room is not exist',
+  USER_IN_ROOM: 'user exist in room',
 };
 
 export default ERRORS;

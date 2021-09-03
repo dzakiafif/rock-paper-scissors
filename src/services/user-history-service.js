@@ -45,7 +45,7 @@ class UserHistoryServices {
       }
 
       static findUserHistory = async ({ userId }) => {
-        const result = await UserHistory.findAll({
+        const result = await UserHistory.findOne({
           where: {
             user_id: userId,
           },

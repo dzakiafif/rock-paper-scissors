@@ -1,6 +1,7 @@
 export const API_ROUTES = {
   ROOT: '/',
   LOGIN_USER: '/login',
+  REGISTER_USER: '/register',
   CREATE_USER_GAME: '/create-user-game',
   READ_USER_GAME: '/read-user-game',
   FIND_USER_GAME: '/find-user-game/:id',
@@ -19,6 +20,9 @@ export const API_ROUTES = {
   DELETE_USER_HISTORY: '/delete-user-history/:id',
   READ_USER_HISTORY: '/read-user-history',
   ALL_USER_HISTORY: '/all-user-history',
+  CREATE_ROOM: '/create-room',
+  JOIN_ROOM: '/join-room',
+  CHECK_ROOM: '/check-room/:roomId',
 };
 
 export const VIEW_ROUTES = {
@@ -27,6 +31,8 @@ export const VIEW_ROUTES = {
   LOGIN: '/login',
   ROOM: '/room',
   REGISTER: '/register',
+  WAITINGROOM: '/waitingroom',
+  JOINROOM: '/join-room',
 };
 
 export const ADMIN_ROUTES = {

@@ -10,7 +10,7 @@
       <h6 class="m-0 font-weight-bold text-primary">User Biodata Table</h6>
     </div>
     <div class="card-body">
-      <a href="/userbiodata/create" class="editor-create float-right btn btn-primary">
+      <a href="/admin/userbiodata/create" class="editor-create float-right btn btn-primary">
         <span
             ><i class="fas fa-user fa-sm fa-fw mr-2 text-light-400"></i></span
           >Create new user biodata
@@ -46,10 +46,10 @@
                   <td><%= data[i].gender %></td>
                   <td><%= data[i].age %></td>
                   <td>
-                    <a class="btn btn-primary btn-circle btn-sm" href="/userbiodata/edit/<%= data[i].id %>"
+                    <a class="btn btn-primary btn-circle btn-sm" href="/admin/userbiodata/edit/<%= data[i].id %>"
                     ><i class="fas fa-edit"></i
                     ></a>
-                    <a class="btn btn-danger btn-circle btn-sm" href="/userbiodata/delete/<%= data[i].id %>"
+                    <a class="btn btn-danger btn-circle btn-sm" href="/admin/userbiodata/delete/<%= data[i].id %>"
                       ><i class="fas fa-trash"></i
                     ></a>
                   </td>

@@ -6,6 +6,7 @@ import AdminUserGameController from '../../controllers/backend/admin/admin-user-
 import AdminUserHistoryController from '../../controllers/backend/admin/admin-user-history-controller';
 import { VIEW_ROUTES, ADMIN_ROUTES } from '../routes';
 import CheckExpired from '../../middleware/check-expired';
+import RoomController from '../../controllers/frontend/room-controller';
 
 const router = express.Router();
 
@@ -13,9 +14,13 @@ const router = express.Router();
 router.get(VIEW_ROUTES.ROOT, FrontendController.index);
 router.get(VIEW_ROUTES.GAME, FrontendController.game);
 router.get(VIEW_ROUTES.REGISTER, FrontendController.register);
+router.post(VIEW_ROUTES.REGISTER, FrontendController.postRegister);
 router.get(VIEW_ROUTES.LOGIN, FrontendController.login);
-router.get(VIEW_ROUTES.ROOM, FrontendController.room);
+router.get(VIEW_ROUTES.ROOM, RoomController.room);
+router.post(VIEW_ROUTES.ROOM, RoomController.postRoom);
+router.get(VIEW_ROUTES.WAITINGROOM, RoomController.waitingRoom);
 router.post(VIEW_ROUTES.LOGIN, FrontendController.postLogin);
+router.post(VIEW_ROUTES.JOINROOM, RoomController.join);
 
 // backend
 router.get(ADMIN_ROUTES.LOGIN, AdminController.login);

@@ -15,7 +15,7 @@ module.exports = {
     */
     await queryInterface.bulkInsert('user_game', [{
       id: '2bc1dc7a-f1f5-4444-bffa-0bd4c7ff6f1e',
-      username: 'dzaki',
+      username: 'nana',
       password,
       role: 'SUPER USER',
       created_at: new Date(),

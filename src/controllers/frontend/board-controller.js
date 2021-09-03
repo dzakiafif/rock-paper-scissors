@@ -19,8 +19,14 @@ class BoardController {
       res.render('frontend/layouts/main', { template: '../../frontend/layouts/login.ejs', title: 'Login' });
     }
 
-    static room = (req, res) => {
-      res.render('frontend/layouts/main', { template: '../../frontend/layouts/room.ejs', title: 'Room' });
+    static postRegister = async (req, res) => {
+      try {
+        await axios.post(`${config.base_url}/api/register`, req.body);
+
+        res.redirect(VIEW_ROUTES.LOGIN);
+      } catch (err) {
+        res.render('frontend/layouts/main', { template: '../../frontend/layouts/register.ejs', title: 'Register New User', error: err.response.data });
+      }
     }
 
     static postLogin = async (req, res) => {
