@@ -6,11 +6,15 @@ class UserHistoryController {
     static create = async (req, res) => {
       try {
         const rules = {
-          userId: 'required',
+          room: 'required',
+          player1: 'required',
+          player1Choose: 'required',
         };
 
         const data = {
-          userId: req.body.userId,
+          room: req.body.room,
+          player1: req.body.player1,
+          player1Choose: req.body.player1Choose,
         };
 
         const message = {
@@ -19,61 +23,25 @@ class UserHistoryController {
 
         await validate(data, rules, message).catch((error) => { throw error; });
 
-        const { userId } = req.body;
+        const { room, player1, player1Choose } = req.body;
 
-        await UserHistoryServices.createUserHistory({ userId });
+        await UserHistoryServices.createUserHistory({ room, player1, player1Choose });
 
-        return res.status(200).json(null, 'User History success created');
+        return res.status(200).json(response.success(null, 'User History success created'));
       } catch (err) {
+        console.log(err);
         const getError = response.errors(err);
         return res.status(getError.code).json(getError);
       }
     }
 
-    static findOneUserHistory = async (req, res) => {
+    static userHistoryRoom = async (req, res) => {
       try {
-        const { userId } = req.params;
+        const { roomId } = req.params;
 
-        const result = await UserHistoryServices.findUserHistory({ userId });
-
-        return res.status(200).json(result);
-      } catch (err) {
-        const getError = response.errors(err);
-        return res.status(getError.code).json(getError);
-      }
-    }
-
-    static read = async (req, res) => {
-      try {
-        const result = await UserHistoryServices.readUserHistory();
+        const result = await UserHistoryServices.findUserHistoryRoom({ roomId });
 
         return res.status(200).json(response.success(result));
-      } catch (err) {
-        const getError = response.errors(err);
-        return res.status(getError.code).json(getError);
-      }
-    }
-
-    static update = async (req, res) => {
-      try {
-        const { id } = req.params;
-
-        await UserHistoryServices.updateUserHistory({ userId: id });
-
-        return res.status(200).json(null, 'success update');
-      } catch (err) {
-        const getError = response.errors(err);
-        return res.status(getError.code).json(getError);
-      }
-    }
-
-    static delete = async (req, res) => {
-      try {
-        const { id } = req.params;
-
-        await UserHistoryServices.deleteUserHistory({ id });
-
-        return res.status(200).json(null, `delete user history with id ${id} successfully`);
       } catch (err) {
         const getError = response.errors(err);
         return res.status(getError.code).json(getError);

@@ -3,9 +3,11 @@ import { Model } from 'sequelize';
 module.exports = (sequelize, DataTypes) => {
   class UserHistory extends Model {
     static associate = (models) => {
-      const { UserGame } = models;
+      const { UserGame, Room } = models;
 
-      UserHistory.belongsTo(UserGame, { foreignKey: 'user_id' });
+      UserHistory.belongsTo(UserGame, { as: 'players1', foreignKey: 'player1' });
+      UserHistory.belongsTo(UserGame, { as: 'players2', foreignKey: 'player2' });
+      UserHistory.belongsTo(Room, { foreignKey: 'room_id' });
     }
   }
 
@@ -16,15 +18,47 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
-    user_id: {
-      allowNull: false,
+    room_id: {
       type: DataTypes.UUID,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'room',
+        key: 'id',
+      },
+    },
+    player1: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'user_game',
+        key: 'id',
+      },
+    },
+    player2: {
+      type: DataTypes.UUID,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'user_game',
+        key: 'id',
+      },
+    },
+    player1_choosen: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    player2_choosen: DataTypes.STRING,
+    result: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
     },
     score: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       defaultValue: 0,
     },
-    login_at: DataTypes.DATE,
   }, {
     sequelize,
     underscored: true,

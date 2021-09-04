@@ -40,6 +40,16 @@ class RoomService {
       const result = await Room.findByPk(roomId);
       return result;
     }
+
+    static getAllUserInRoom = async ({ roomId }) => {
+      const result = await UserGameRoom.findAll({
+        where: {
+          room_id: roomId,
+        },
+      });
+
+      return result;
+    }
 }
 
 export default RoomService;

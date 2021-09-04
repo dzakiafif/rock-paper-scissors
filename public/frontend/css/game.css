@@ -146,3 +146,7 @@ header h1 {
   color: white;
   letter-spacing: 0.1em;
 }
+
+.hide {
+  display: none;
+}

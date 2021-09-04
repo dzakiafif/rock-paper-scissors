@@ -37,13 +37,10 @@ router.get(API_ROUTES.MALE_FEMALE_USER_BIODATA,
 
 // User History
 router.post(API_ROUTES.CREATE_USER_HISTORY, [Middleware.Auth], UserHistoryController.create);
-router.get(API_ROUTES.READ_USER_HISTORY, [Middleware.Auth], UserHistoryController.read);
-router.get(API_ROUTES.FIND_USER_HISTORY,
-  [Middleware.Auth],
-  UserHistoryController.findOneUserHistory);
-router.put(API_ROUTES.UPDATE_USER_HISTORY, [Middleware.Auth], UserHistoryController.update);
-router.delete(API_ROUTES.DELETE_USER_HISTORY, [Middleware.Auth], UserHistoryController.delete);
 router.get(API_ROUTES.ALL_USER_HISTORY, [Middleware.Auth], UserHistoryController.allUserHistory);
+router.get(API_ROUTES.FIND_USER_HISTORY_ROOM,
+  [Middleware.Auth],
+  UserHistoryController.userHistoryRoom);
 
 // Room
 router.post(API_ROUTES.CREATE_ROOM, [Middleware.Auth], RoomController.create);

@@ -50,7 +50,14 @@ class RoomController {
 
         const checkUserInRoom = await RoomService.countUserInRoom({ roomId });
 
-        return res.status(200).json(response.success(checkUserInRoom));
+        const getAllUserInRoom = await RoomService.getAllUserInRoom({ roomId });
+
+        const data = {
+          room: getAllUserInRoom,
+          total: checkUserInRoom,
+        };
+
+        return res.status(200).json(response.success(data));
       } catch (err) {
         const getError = response.errors(err);
         return res.status(getError.code).json(getError);

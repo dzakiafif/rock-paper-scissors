@@ -10,4 +10,5 @@ module.exports = {
   port_app: process.env.PORT,
   base_url: process.env.BASE_URL,
   secret: process.env.SECRET,
+  logging: false,
 };

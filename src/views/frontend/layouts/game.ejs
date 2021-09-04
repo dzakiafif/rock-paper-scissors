@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/frontend/css/game.css" />
-    <script src="/frontend/js/script.js" defer></script>
+    <script src="/frontend/js/script2.js" defer></script>
+    <!-- <script src="/frontend/js/script.js" defer></script> -->
   </head>
   <body>
     <header>
@@ -18,13 +19,13 @@
       <section id="player">
         <h1>player 1</h1>
         <div class="selection" id="player-rock">
-          <img data-player="rock" src="/frontend/assets/images/batu.png" />
+          <img data-player1="rock" src="/frontend/assets/images/batu.png" />
         </div>
         <div class="selection" id="player-paper">
-          <img data-player="paper" src="/frontend/assets/images/kertas.png" />
+          <img data-player1="paper" src="/frontend/assets/images/kertas.png" />
         </div>
         <div class="selection" id="player-scissors">
-          <img data-player="scissors" src="/frontend/assets/images/gunting.png" />
+          <img data-player1="scissors" src="/frontend/assets/images/gunting.png" />
         </div>
       </section>
 
@@ -33,15 +34,18 @@
       </section>
 
       <section id="computer">
-        <h1>Com</h1>
+        <h1>Player 2</h1>
         <div class="selection" id="computer-rock">
-          <img data-comp="rock" src="/frontend/assets/images/batu.png" />
+          <img data-player2="rock" src="/frontend/assets/images/batu.png" />
+        </div>
+        <div class="player2-text">
+          <p>waiting player 1 choose component</p>
         </div>
         <div class="selection" id="computer-paper">
-          <img data-comp="paper" src="/frontend/assets/images/kertas.png" />
+          <img data-player2="paper" src="/frontend/assets/images/kertas.png" />
         </div>
         <div class="selection" id="computer-scissors">
-          <img data-comp="scissors" src="/frontend/assets/images/gunting.png" />
+          <img data-player2="scissors" src="/frontend/assets/images/gunting.png" />
         </div>
       </section>
     </div>
